@@ -3,24 +3,23 @@ cp vimrc ~/.vimrc
 cp zshrc ~/.zshrc
 
 #NeoBundleのための環境構築
+if [-e ~/.vim/bundle]; then
+    mkdir -p ~/.vim/bundle
+fi
+
+if [-e ~/.vim/colors] then
+    mkdir -p ~/.vim/colors
+fi
+
 if [-e ~/.vim/bundle/neobundle]; then
-    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle
-else
-    echo "~/.vim/bundle doesn't exists! I will make it!"
-    mkdir -p ~/.vim/bundle &&
-    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle
+    cd ~/.vim/bundle
+    git clone https://github.com/Shougo/neobundle.vim
 fi
 
 #vimカラースキームのための環境構築
-if [-e ~/.vim/colors]; then
+if [-e ~/.vim/colors/molokai]; then
     cd ~/.vim/colors
     git clone https://github.com/tomasr/molokai.git
-    cp molokai/colors/molokai.vim .
-else
-    echo "~/.vim/colors doesn't exists! I will make it!"
-    mkdir -p ~/.vim/colors &&
-    cd ~/.vim/colors &&
-    git clone https://github.com/tomasr/molokai.git &&
     cp molokai/colors/molokai.vim .
 fi
 

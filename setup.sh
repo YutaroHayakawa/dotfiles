@@ -3,7 +3,7 @@ if [-e ~/.vim/bundle]; then
     git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 else
     echo "~/.vim/bundle doesn't exist! I will make it!"
-    mkdir ~/.vim/bundle
+    mkdir -p ~/.vim/bundle
     git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 fi
 
@@ -14,7 +14,7 @@ if [-e ~/.vim/colors]; then
     cp molokai/colors/molokai.vim .
 else
     echo "~/.vim/colors doesn't exist! I will make it!"
-    mkdir ~/.vim/colors
+    mkdir -p ~/.vim/colors
     cd ~/.vim/colors
     git clone https://github.com/tomasr/molokai.git
     cp molokai/colors/molokai.vim .

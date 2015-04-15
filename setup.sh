@@ -3,12 +3,12 @@ cp vimrc ~/.vimrc
 cp zshrc ~/.zshrc
 
 #NeoBundleのための環境構築
-if [-e ~/.vim/bundle]; then
-    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+if [-e ~/.vim/bundle/neobundle]; then
+    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle
 else
     echo "~/.vim/bundle doesn't exists! I will make it!"
     mkdir -p ~/.vim/bundle &&
-    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle
 fi
 
 #vimカラースキームのための環境構築
@@ -26,7 +26,7 @@ fi
 
 #zshrcのための環境構築
 if [-e ~/.zshrc]; then
-    git clone https://github.com/seebi/dircolors-solarized.git ~/. &&
+    git clone https://github.com/seebi/dircolors-solarized.git ~/dircolors-solarized &&
     ln -s ~/dircolors-solarized/dircolors.256dark ~/.dircolors &&
     source ~/.zshrc
 else

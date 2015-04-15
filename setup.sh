@@ -1,15 +1,6 @@
 #このレポジトリのファイルをコピー
-if [! -e ~/.vimrc]; then
-    cp vimrc ~/.vimrc
-else
-    echo ".vimrc already exists!"
-fi
-
-if [! -e ~/.zshrc]; then
-    cp zshrc ~/.zshrc
-else
-    echo ".zshrc already exists!"
-fi
+cp vimrc ~/.vimrc
+cp zshrc ~/.zshrc
 
 #NeoBundleのための環境構築
 if [-e ~/.vim/bundle]; then

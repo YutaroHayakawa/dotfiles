@@ -5,6 +5,8 @@ RPROMPT="%F{154}%d%f"
 
 export LSCOLORS
 
+alias ls="ls --color=auto"
+
 if [ -f ~/.dircolors ]; then
     if type dircolors > /dev/null 2>&1; then
         eval $(dircolors ~/.dircolors)

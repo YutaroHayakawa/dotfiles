@@ -1,6 +1,6 @@
 #このレポジトリのファイルをシンボリックリンクにする
-ln -s vimrc ~/.vimrc
-ln -s zshrc ~/.zshrc
+ln -s `pwd`/vimrc ~/.vimrc
+ln -s `pwd`/zshrc ~/.zshrc
 
 #NeoBundleのための環境構築
 mkdir -p ~/.vim/bundle

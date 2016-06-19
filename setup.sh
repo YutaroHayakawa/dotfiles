@@ -1,6 +1,6 @@
-#このレポジトリのファイルをコピー
-cp vimrc ~/.vimrc
-cp zshrc ~/.zshrc
+#このレポジトリのファイルをシンボリックリンクにする
+ln -s vimrc ~/.vimrc
+ln -s zshrc ~/.zshrc
 
 #NeoBundleのための環境構築
 mkdir -p ~/.vim/bundle
@@ -19,4 +19,3 @@ cp molokai/colors/molokai.vim .
 git clone https://github.com/seebi/dircolors-solarized.git ~/dircolors-solarized &&
 ln -s ~/dircolors-solarized/dircolors.256dark ~/.dircolors &&
 source ~/.zshrc
-

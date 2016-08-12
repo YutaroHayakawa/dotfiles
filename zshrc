@@ -1,7 +1,7 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=vim || export EDITOR=vi
 
-PROMPT="%F{154}%n@%m #%f "
+PROMPT="%F{154}%n@%m $%f "
 RPROMPT="%F{154}%d%f" 
 
 export LSCOLORS

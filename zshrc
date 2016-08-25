@@ -1,8 +1,25 @@
-export LANG=ja_JP.UTF-8
 export EDITOR=vim || export EDITOR=vi
 
-PROMPT="%F{154}%n@%m $%f "
-RPROMPT="%F{154}%d%f" 
+autoload -U compinit
+compinit
+
+# Specify history file name
+export HISTFILE=${HOME}/.zsh_history
+
+# Histories will be stored on memory
+export HISTSIZE=1000
+
+# Histories will be stored in history file
+export SAVEHIST=100000
+
+# Ignore historie's duplicate
+setopt hist_ignore_dups
+
+# Remember start and exit
+setopt EXTENDED_HISTORY
+
+PROMPT="%F{5}%n@%m $%f "
+RPROMPT="%F{5}%d%f" 
 
 export LSCOLORS
 

@@ -5,16 +5,12 @@ compinit
 
 # Specify history file name
 export HISTFILE=${HOME}/.zsh_history
-
 # Histories will be stored on memory
 export HISTSIZE=1000
-
 # Histories will be stored in history file
 export SAVEHIST=100000
-
 # Ignore historie's duplicate
 setopt hist_ignore_dups
-
 # Remember start and exit
 setopt EXTENDED_HISTORY
 
@@ -23,8 +19,15 @@ RPROMPT="%F{5}%d%f"
 
 export LSCOLORS
 
-alias ls="ls --color=auto"
+# source path of netmap
+#export NSRC=~/netmap
 
+# source path of netmap applications
+#export PATH=$PATH:$NSRC/LINUX/build-apps/
+
+alias cdw="cd ~/bmv2/targets/prism/mswitch_components"
+
+alias ls="ls --color=auto"
 if [ -f ~/.dircolors ]; then
     if type dircolors > /dev/null 2>&1; then
         eval $(dircolors ~/.dircolors)

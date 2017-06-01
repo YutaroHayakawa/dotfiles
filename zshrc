@@ -19,15 +19,7 @@ RPROMPT="%F{5}%d%f"
 
 export LSCOLORS
 
-# source path of netmap
-#export NSRC=~/netmap
-
-# source path of netmap applications
-#export PATH=$PATH:$NSRC/LINUX/build-apps/
-
-alias cdw="cd ~/bmv2/targets/prism/mswitch_components"
-
-alias ls="ls --color=auto"
+alias ls="gls --color=auto"
 if [ -f ~/.dircolors ]; then
     if type dircolors > /dev/null 2>&1; then
         eval $(dircolors ~/.dircolors)

@@ -5,9 +5,6 @@ set cmdheight=2
 set showmatch
 set list
 
-" This setting doesn't work on some platforms
-set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
-
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -31,13 +28,9 @@ if has('vim_starting')
 endif
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+" Install required plugins
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'The-NERD-tree'
-NeoBundle 'taglist.vim'
-NeoBundle 'https://github.com/wesleyche/SrcExpl.git'
-NeoBundle 'https://github.com/wesleyche/Trinity.git'
 NeoBundle 'rhysd/accelerated-jk'
-NeoBundle 'thinca/vim-quickrun'
 call neobundle#end()
 NeoBundleCheck
 

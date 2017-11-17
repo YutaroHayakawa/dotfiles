@@ -31,13 +31,7 @@ if has('vim_starting')
 endif
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'The-NERD-tree'
-NeoBundle 'taglist.vim'
-NeoBundle 'https://github.com/wesleyche/SrcExpl.git'
-NeoBundle 'https://github.com/wesleyche/Trinity.git'
 NeoBundle 'rhysd/accelerated-jk'
-NeoBundle 'thinca/vim-quickrun'
 call neobundle#end()
 NeoBundleCheck
 

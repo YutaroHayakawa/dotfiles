@@ -22,5 +22,3 @@ cp molokai/colors/molokai.vim .
 git clone https://github.com/seebi/dircolors-solarized.git ~/.dircolors-solarized &&
 ln -s ~/.dircolors-solarized/dircolors.256dark ~/.dircolors &&
 source ~/.zshrc
-
-sudo usermod -s `which zsh` `whoami`

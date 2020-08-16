@@ -1,4 +1,6 @@
+"
 " Basic settings
+"
 set nocompatible
 set cursorline
 set cursorcolumn
@@ -18,6 +20,11 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+
+" Some plugins needs python to work, to avoid the conflict with venvs, set
+" absolute python path. This setting depends on the pyenv
+let g:python_host_prog='~/.pyenv/versions/vim/bin/python'
+let g:python3_host_prog='~/.pyenv/versions/vim/bin/python3'
 
 "
 " Color scheme
@@ -68,7 +75,11 @@ if !has('nvim')
 endif
 let g:deoplete#enable_at_startup = 1
 
+" vim-polyglot
 call dein#add('sheerun/vim-polyglot')
+
+" deoplete-jedi
+call dein#add('deoplete-plugins/deoplete-jedi')
 
 "
 " Settings needed to be at last

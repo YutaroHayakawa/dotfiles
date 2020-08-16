@@ -1,43 +1,77 @@
+" Basic settings
+set nocompatible
 set cursorline
 set cursorcolumn
 set laststatus=2
 set cmdheight=2
+set backspace=2
 set showmatch
+set autoindent
+set smartindent
 set list
+set number
+set termguicolors
 
-" This setting doesn't work on some platforms
-set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
 
+" My default preference, may overridden by other coding styles
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-set autoindent
-set smartindent
-runtime ftplugin/man.vim
+"
+" Color scheme
+"
 
-set number
-autocmd ColorScheme * highlight Comment ctermfg=211 guifg=#008800
-colorscheme molokai
-syntax on
+" Default comment color of the monokai_pro is invisible in transparent screen
+autocmd ColorScheme * highlight Comment ctermfg=211 guifg=#EA9198
+" colorscheme molokai
+colorscheme monokai_pro
 
-set nocompatible
-filetype plugin indent off
+"
+" Custom key bind
+"
 
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#begin(expand('~/.vim/bundle'))
+" Map Ctrl-j to Esc
+imap <c-j> <esc>
+
+"
+" Dein basic settings
+"
+
+" Took from official README
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'rhysd/accelerated-jk'
-call neobundle#end()
-NeoBundleCheck
+"
+" Dein plugin settings
+"
 
+" Deoplete.vim
+call dein#add('Shougo/deoplete.nvim')
+if !has('nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+endif
+let g:deoplete#enable_at_startup = 1
+
+call dein#add('sheerun/vim-polyglot')
+
+"
+" Settings needed to be at last
+"
+syntax enable
 filetype plugin indent on
-
-"Custom key binds
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
-imap <c-j> <esc>

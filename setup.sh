@@ -19,21 +19,21 @@ cd ~/.vim
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > dein_installer.sh
 sh ./dein_installer.sh ~/.cache/dein
 
-# Install zsh color scheme
-git clone https://github.com/seebi/dircolors-solarized.git ~/.dircolors-solarized &&
-ln -s ~/.dircolors-solarized/dircolors.256dark ~/.dircolors &&
-source ~/.zshrc
-
 # Change the default shell
 kernel=`uname -s`
 if [ $kernel = "Darwin" ]; then
   chsh -s `which zsh`
 elif [ $kernel = "Linux" ]; then
-  sudo uname -s `which zsh` `whoami`
+  sudo usermod -s `which zsh` `whoami`
 else
   echo "Unknown kernel name $kernel"
   exit 1
 fi
+
+# Install zsh color scheme
+git clone https://github.com/seebi/dircolors-solarized.git ~/.dircolors-solarized &&
+ln -s ~/.dircolors-solarized/dircolors.256dark ~/.dircolors &&
+source ~/.zshrc
 
 # Install pyenv required for vim plugins
 curl https://pyenv.run | sh

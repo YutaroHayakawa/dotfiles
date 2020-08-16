@@ -27,3 +27,7 @@ if [ -f ~/.dircolors ]; then
         eval $(gdircolors ~/.dircolors)
     fi
 fi
+
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

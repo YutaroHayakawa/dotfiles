@@ -63,6 +63,10 @@ if dein#load_state('~/.cache/dein')
   call dein#save_state()
 endif
 
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
+
 "
 " Dein plugin settings
 "

@@ -8,14 +8,16 @@ ln -s `pwd`/zshrc ~/.zshrc
 git config --global user.email "yhayakawa3720@gmail.com"
 git config --global user.name "Yutaro Hayakawa"
 
-# Create required directories for vim
-mkdir -p ~/.vim/bundle
-mkdir -p ~/.vim/colors
-
 # Install vim color scheme
+mkdir -p ~/.vim/colors
 cd ~/.vim/colors
 git clone https://github.com/phanviet/vim-monokai-pro
 cp vim-monokai-pro/colors/monokai_pro.vim .
+
+# Install Dein.vim
+cd ~/.vim
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > dein_installer.sh
+sh ./dein_installer.sh ~/.cache/dein
 
 # Install zsh color scheme
 git clone https://github.com/seebi/dircolors-solarized.git ~/.dircolors-solarized &&

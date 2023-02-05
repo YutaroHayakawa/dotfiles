@@ -13,13 +13,18 @@ set smartindent
 set list
 set number
 set termguicolors
+set completeopt+=noinsert,menuone
 
 
 " My default preference, may overridden by other coding styles
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
 
 " Some plugins needs python to work, to avoid the conflict with venvs, set
 " absolute python path. This setting depends on the pyenv
@@ -51,13 +56,9 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
-
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
+
+  call dein#add('fatih/vim-go')
 
   call dein#end()
   call dein#save_state()
@@ -66,24 +67,6 @@ endif
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
-
-"
-" Dein plugin settings
-"
-
-" Deoplete.vim
-call dein#add('Shougo/deoplete.nvim')
-if !has('nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-endif
-let g:deoplete#enable_at_startup = 1
-
-" vim-polyglot
-call dein#add('sheerun/vim-polyglot')
-
-" deoplete-jedi
-call dein#add('deoplete-plugins/deoplete-jedi')
 
 "
 " Settings needed to be at last

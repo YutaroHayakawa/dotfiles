@@ -27,15 +27,15 @@ vim.api.nvim_create_autocmd(
 )
 
 -- Per-language preference
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = { "c" },
---   callback = function(args)
---     vim.bo.expandtab = true
---     vim.bo.shiftwidth = 2
---     vim.bo.tabstop = 2
---     vim.bo.softtabstop = 2
---   end
--- })
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { "c", "cpp" },
+  callback = function(args)
+    vim.bo.expandtab = true
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+  end
+})
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { "go" },
@@ -87,6 +87,7 @@ require('packer').startup(function()
 
   -- Test
   use 'vim-test/vim-test'
+  use 'andythigpen/nvim-coverage'
 
   -- Others
   use 'petertriho/nvim-scrollbar'
@@ -108,6 +109,7 @@ require('packer').startup(function()
     requires = { { 'ldelossa/litee.nvim' } }
   }
   use {'nvim-telescope/telescope-ui-select.nvim' }
+  use {'rhysd/vim-grammarous'}
 end)
 
 require("one_monokai").setup()
@@ -155,6 +157,7 @@ require("nvim-tree").setup({
 })
 require('litee.lib').setup()
 require('litee.gh').setup({
+  debug_logging = true,
   -- deprecated, around for compatability for now.
   jump_mode   = "invoking",
   -- remap the arrow keys to resize any litee.nvim windows.
@@ -272,3 +275,4 @@ require('lspconfig').gopls.setup{
 require('lspconfig').clangd.setup{ on_attach = on_attach }
 require('lualine').setup()
 require('dap-go').setup()
+require("coverage").setup()
